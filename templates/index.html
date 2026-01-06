@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Hava Durumu</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<!-- 🌫️ SİS EFEKTİ -->
+<div id="fog-layer"></div>
+
+<!-- ⭐ YILDIZ KATMANI (SADECE DARK MODE) -->
+<div class="stars"></div>
+
+<!-- 🌅 GÜN / GECE ANİMASYONU -->
+<div class="sky-wrapper">
+    <div class="sun"></div>
+</div>
+
+<!-- GERİ BUTONU -->
+<button id="geriBtn" class="geri-btn gizli">←</button>
+
+<!-- ÜST ALAN: Başlangıçta sadece arama -->
+<div id="ustAlan">
+    <h1>HAVA DURUMU APP</h1>
+    <button id="temaBtn">🌙 Dark Mode</button>
+    <hr>
+    <div id="arama-alani">
+        <h2>Hoşgeldiniz 🌍</h2>
+        <p>Lütfen bir şehir girin</p>
+    </div>
+</div>
+
+<!-- ARAMA ÇUBUĞU -->
+<div id="aramaAlan">
+    <div class="arama-kutu">
+        <input id="sehirInput" type="text" placeholder="Şehir adı girin">
+        <button id="araBtn">🔍</button>
+    </div>
+</div>
+
+<!-- SONUÇ: Başlangıçta gizli -->
+<div id="sonuc" class="gizli">
+
+    <!-- ANA HAVA KARTI -->
+    <div class="sehir-kart">
+        <div class="sehir-baslik">
+            <span id="sehirAdi">---</span>
+            <span id="saat">--:--</span>
+        </div>
+        <img id="ikon" class="ana-ikon">
+        <p id="durum" class="durum"></p>
+        <div class="alt-bilgiler">
+            <div class="mini-kart">
+                <p class="etiket">Nem</p>
+                <p id="nem" class="deger"></p>
+            </div>
+            <div class="mini-kart">
+                <p class="etiket">Hissedilen</p>
+                <p id="hissedilen" class="deger"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SICAKLIK / YAĞIŞ GRAFİĞİ -->
+    <div class="grafik-kart">
+        <div class="grafik-ust">
+            <button id="sicaklikBtn" class="grafik-btn aktif">🌡️ Sıcaklık</button>
+            <button id="yagisBtn" class="grafik-btn">🌧️ Yağış</button>
+        </div>
+        <canvas id="grafikCanvas"></canvas>
+    </div>
+
+    <!-- 5 GÜNLÜK TAHMİN -->
+    <div class="tahmin-wrapper">
+        <h3 class="tahmin-baslik">5 Günlük Tahmin</h3>
+        <div id="tahminler" class="tahminler"></div>
+    </div>
+
+    <!-- 🌞 GÜNEŞ DOĞUŞ-BATIŞ -->
+    <div class="gunes-kart gizli" id="gunesKart">
+        <canvas id="gunesYay" width="180" height="250"></canvas>
+        <div class="gunes-saatler">
+            <span>Gün Doğumu: <strong id="dogusSaat">--:--</strong></span>
+            <span>Gün Batımı: <strong id="batisSaat">--:--</strong></span>
+        </div>
+    </div>
+
+</div>
+
+<!-- ⚠️ SIRALAMA ÖNEMLİ -->
+<script src="{{ url_for('static', filename='weather.js') }}"></script>
+<script src="{{ url_for('static', filename='theme.js') }}"></script>
+
+</body>
+</html>
