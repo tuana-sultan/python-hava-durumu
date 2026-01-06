@@ -68,3 +68,13 @@ Flask tabanlı, animasyonlu hava durumu web uygulaması.
 ```txt
 flask
 requests
+python-dotenv 
+---
+## 🔐 API Key Güvenliği
+
+Bu projede API anahtarı güvenlik sebebiyle GitHub'a eklenmemiştir.
+
+Projeyi çalıştırmak için:
+
+1. Proje dizinine `.env` dosyası oluşturun
+2. İçerisine aşağıdaki satırı ekleyin:
