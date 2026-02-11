@@ -1,5 +1,6 @@
 flask
 gunicorn
 requests
-sqlite3
+pysqlite3
 python-dotenv
+
