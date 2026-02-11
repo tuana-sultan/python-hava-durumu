@@ -23,19 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
             temaBtn.textContent = "☀️ Light Mode";
             localStorage.setItem("tema", "dark");
 
-            // 🌑 güneş koyu gri
             if (sun) sun.style.background = "#555";
-
-            // ⭐ yıldızları oluştur
             createStars();
+
         } else {
             temaBtn.textContent = "🌙 Dark Mode";
             localStorage.setItem("tema", "light");
 
-            // ☀️ güneşi sarı yap
             if (sun) sun.style.background = "#FFD700";
-
-            // ❌ yıldızları temizle
             removeStars();
         }
     });
@@ -56,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
             starsContainer.appendChild(star);
         }
 
-        // ✨ parlamayı başlat
         starsContainer.starInterval = setInterval(() => {
             const stars = document.querySelectorAll(".box");
             if (stars.length === 0) return;
